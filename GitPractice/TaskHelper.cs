@@ -40,17 +40,21 @@ namespace GitPractice
         public void UpdateTask(TaskModel task)
         {
             var tasks = GetAllTasks();
-            string data = string.Empty;
-            if (tasks != null)
+            var taskToUpdate = GetTaskById(task.Id);
+            if (tasks != null && taskToUpdate != null)
             {
                 tasks[task.Id + 1] = task;
-                data = JsonConvert.SerializeObject(tasks);
+                var data = JsonConvert.SerializeObject(tasks);
+                File.WriteAllText(DATA_PATH, data);
             }
-            else
+            else if (tasks == null)
             {
-                data = JsonConvert.SerializeObject(task);
+                throw new Exception("The task list is empty.");
             }
-            File.WriteAllText(DATA_PATH, data);
+            else if (taskToUpdate == null)
+            {
+                throw new Exception("The task with this id does not exist.");
+            }
         }
 
         public void DeleteTask(int id)
