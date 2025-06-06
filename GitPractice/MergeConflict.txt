@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿This is text line from get-all-tasks-command branch.
+=======
+﻿This is text line from get-upcoming-tasks-command branch.
+>>>>>>> get-upcoming-tasks-command
