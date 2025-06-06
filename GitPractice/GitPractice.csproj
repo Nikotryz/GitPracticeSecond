@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="data.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="data.json" />
+    <Resource Include="data.json" />
   </ItemGroup>
 
   <ItemGroup>

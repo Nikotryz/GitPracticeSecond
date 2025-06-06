@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
+
 namespace GitPractice
 {
     public class TaskHelper
     {
-        private const string DATA_PATH = "GitPractice.data.json";
+        private const string DATA_PATH = "D:\\VisualStudio\\Projects\\GitPractice\\GitPractice\\data.json";
 
         public List<TaskModel>? GetAllTasks()
         {
@@ -32,7 +33,8 @@ namespace GitPractice
             else
             {
                 task.SetId(1);
-                data = JsonConvert.SerializeObject(task);
+                tasks = [task];
+                data = JsonConvert.SerializeObject(tasks);
             }
             File.WriteAllText(DATA_PATH, data);
         }
